@@ -133,17 +133,12 @@ concatenated_layers = ['block_2_add', 'block_4_add', 'block_5_add', 'block_7_add
 
 # grab image file path and layers from arguments
 file_path = sys.argv[1]
-file_name = os.path.splitext(os.path.basename(file_path))[0]
 layer_1 = int(sys.argv[2])
 layer_2 = int(sys.argv[3])
+file_name = os.path.splitext(os.path.basename(file_path))[0]
 
 if not os.path.isdir('./output'): os.mkdir('./output')
 output_directory = './output'
-
-# sets output directiory differently if openFileLoop.java
-if int(sys.argv[4]) == 1:
-    output_directory += "-" + file_name
-    if not os.path.isdir(output_directory): os.mkdir(output_directory)
 
 # image to dreamify
 original_img = PIL.Image.open(file_path)
